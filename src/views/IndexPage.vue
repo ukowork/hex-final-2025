@@ -135,7 +135,7 @@
           <li>打造前端專案與履歷亮點</li>
           <li>深度強化面試表現</li><!--]-->
         </ul>
-        <hr class="mb-4 border-b border-content"><button type="button"
+        <hr class="mb-4 border-b border-line"><button type="button"
           class="rounded-full border border-black px-4 py-2 text-fs-1 text-content hover:bg-black hover:text-[#F5F5F5]">
           前往聆聽 podcast </button>
       </article>
@@ -147,7 +147,7 @@
           <li>制訂階段性目標與時間安排</li>
           <li>鼓勵參與前端社群或活動</li><!--]-->
         </ul>
-        <hr class="mb-4 border-b border-content"><button type="button"
+        <hr class="mb-4 border-b border-line"><button type="button"
           class="rounded-full border border-black px-4 py-2 text-fs-1 text-content hover:bg-black hover:text-[#F5F5F5]">
           前往聆聽 podcast </button>
       </article>
@@ -159,7 +159,7 @@
           <li>透過面試模擬找出常犯的邏輯漏洞</li>
           <li>討論遇到不熟悉議題時的回應方式</li>
         </ul>
-        <hr class="mb-4 border-b border-content"><button type="button"
+        <hr class="mb-4 border-b border-line"><button type="button"
           class="rounded-full border border-black px-4 py-2 text-fs-1 text-content hover:bg-black hover:text-[#F5F5F5]">
           前往聆聽 podcast </button>
       </article>
@@ -171,7 +171,7 @@
           <li>擬定進階框架或技術研究目標</li>
           <li>培養跨團隊溝通與簡報能力</li>
         </ul>
-        <hr class="mb-4 border-b border-content"><button type="button"
+        <hr class="mb-4 border-b border-line"><button type="button"
           class="rounded-full border border-black px-4 py-2 text-fs-1 text-content hover:bg-black hover:text-[#F5F5F5]">
           前往聆聽 podcast </button>
       </article>
