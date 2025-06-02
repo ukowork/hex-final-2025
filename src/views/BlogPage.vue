@@ -12,6 +12,7 @@
     </div>
   </section>
   <!-- ========================================================================================== -->
+  <!-- Blog Top 文章 -->
   <section class="mx-auto flex max-w-[1920px] flex-col border border-line lg:flex-row">
     <picture>
       <source media="(min-width: 1024px)" srcset="/desktop/blog/start-from-scratch.webp" />
@@ -24,7 +25,8 @@
           <li class="text-fs-1.5 text-brand"><span>前端開發</span><span class="mx-1">x</span></li>
           <li class="text-fs-1.5 text-brand"><span>職涯成長</span><!----></li>
           <li class="ml-2 rounded-full bg-brand px-3 py-1.5 text-fs-1-bold text-white">最新文章</li>
-        </ul><a href="/blog/start-from-scratch" class="block">
+        </ul>
+        <a href="/blog/start-from-scratch" class="block">
           <h2 class="mb-2 text-fs-1.75-bold lg:whitespace-nowrap ">自學前端不用怕：從零開始的三大關鍵</h2>
           <p class="line-clamp mb-4 text-fs-1 lg:max-w-[636px]">嗨，我是
             Alyse，一名前端工程師兼職涯諮詢師。一直以來，我都很喜歡在部落格分享學習與工作心得，也常有讀者問：「我想轉職/自學前端，該從哪裡開始？」
@@ -36,8 +38,27 @@
     </div>
   </section>
   <!-- ========================================================================================== -->
+   <!-- Blog 列表 -->
+   <section class="mx-auto hidden max-w-[1920px] overflow-hidden bg-wrap px-3 py-20 md:block">
+    <div class="mx-auto max-w-[1296px]">
+      <!-- 搜尋列 -->
+      <div class="relative mb-10">
+        <img src="@/assets/img/icon/search.webp" alt="搜尋" class="absolute left-4 top-1/2 -translate-y-1/2">
+        <input value="" type="text" name="search" id="search" placeholder="搜尋你感興趣的文章" class="rounded-full border border-content py-4 pl-[50px] pr-12 text-fs-6 text-content placeholder:text-content">
+      </div>
+      <!-- 文章列表 -->
+       <BlogCardList></BlogCardList>
+    </div>
+   </section> 
+  <!-- ========================================================================================== -->
 </template>
-<script setup>
+<script>
+import BlogCardList from '@/components/BlogCardList.vue'
+export default {
+  components: {
+    BlogCardList
+  }
+}
 </script>
 <style scoped>
 .bannerTitle {
