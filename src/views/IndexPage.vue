@@ -278,11 +278,9 @@ import matter from 'gray-matter'
 import ArticleCarousel from '@/components/ArticleCarousel.vue'
 
 const context = require.context('@/content/blog', false, /\.md$/)
-
 const allPosts = context.keys().map(key => {
   const raw = context(key)
-  const { data } = matter(raw.default || raw)
-
+  const { data } = matter(raw)
   const formatDate = (dateStr) => {
     const date = new Date(dateStr)
     const yyyy = date.getFullYear()
