@@ -10,7 +10,7 @@ const formatDate = (dateStr) => {
   const dd = date.getDate().toString().padStart(2, '0')
   return `${yyyy}/${mm}/${dd}`
 }
-const posts = context.keys().map(key => {
+const allPosts = context.keys().map(key => {
   const raw = context(key)
   const { data } = matter(raw.default || raw)
 
@@ -26,18 +26,18 @@ export default {
   name: 'BlogCardList',
   data() {
     return {
-      posts
+      posts: allPosts.slice(1),
     }
   }
 }
 </script>
 
 <template>
-  <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-    <article v-for="post in posts" :key="post.slug" class="overflow-hidden hover:shadow-lg transition bg-white">
+  <section class="mb-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-y-20">
+    <article v-for="post in posts" :key="post.slug" class="overflow-hidden bg-white">
       <router-link :to="post.slug" class="block">
-        <img :src="post.desktopCover" class="w-full h-48 object-cover" />
-        <div class="p-4">
+        <img :src="post.desktopCover" class="w-full h-48 object-cover mb-4" />
+        <div class="p-0">
           <p class="mb-1 text-fs-1">{{ post.dateFormatted  }}</p>
           <p class="text-fs-1.5 text-brand mb-2">
             <span v-for="tag in post.tags" :key="tag">#{{ tag }} </span>
@@ -52,4 +52,20 @@ export default {
       </router-link>
     </article>
   </section>
+  <nav class="mx-auto max-w-[328px] rounded-full bg-white px-5 py-4">
+      <ul class="flex justify-between text-center text-fs-6 text-content">
+        <li>
+          <img src="../assets/img/icon/prev.webp" alt="上一頁" class="cursor-pointer" />
+        </li>
+        <li class="w-10 cursor-pointer">1</li>
+        <li class="w-10 cursor-pointer">2</li>
+        <li class="w-10 cursor-pointer">3</li>
+        <li class="w-10 cursor-pointer">4</li>
+        <li class="w-10 cursor-pointer">5</li>
+        <li class="w-10 cursor-pointer">...</li>
+        <li>
+          <img src="../assets/img/icon/next.webp" alt="下一頁" class="cursor-pointer" />
+        </li>
+      </ul>
+    </nav>
 </template>

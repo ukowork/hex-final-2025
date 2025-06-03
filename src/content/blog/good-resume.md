@@ -11,20 +11,19 @@ tags:
 isPopular: false
 ---
 
-::content-space
+
 
 ## 前言
 
 作品集是你履歷中的名片，一眼就能讓面試官對你的實力與風格有初步印象。好的作品集不僅要展示成果，更要透過清晰的說明，呈現你的思考過程與解題能力。
 
-::
 
-::content-space
 
-::prose-img{src="/desktop/blog/good-resume.webp" alt="前言圖片"}
-::
 
-::content-block
+
+![前言圖片](/desktop/blog/good-resume.webp)
+
+
 
 ### 選擇最具代表性的專案
 
@@ -37,9 +36,9 @@ isPopular: false
 - 每個專案限 1～2 張截圖，聚焦核心功能與 UI／UX。
 - 在描述中加入你的角色與技術栈，例如「使用 React + Tailwind 實作響應式版面」。
 
-::
 
-::content-block
+
+
 
 ### 撰寫流程說明與心得
 
@@ -52,15 +51,15 @@ isPopular: false
 - 強調你如何克服技術難題，例如「優化 API 請求效能」、「處理跨瀏覽器相容性」。
 - 最後補充專案心得或未來優化方向，顯示你持續進步的態度。
 
-::
 
-::content-space
+
+
 
 ## 結語
 
 一份出色的前端作品集，不只是看結果，更是看你的思考與執行力。透過「精選專案＋流程說明」的架構，讓面試官在短時間內對你留下深刻印象，也增加你的履歷競爭力。
 
-::
+
 
 ## 延伸閱讀
 

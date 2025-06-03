@@ -11,22 +11,16 @@ tags:
 isPopular: false
 ---
 
-::content-space
-
 ## 前言
 
 在專案開發中，當第三方函式庫快速迭代，你是否常因「升級破壞」而崩潰？要讓團隊順暢協作、代碼可長期維護，除了寫好程式碼，依賴鎖定與自動化腳本更是不可少的關鍵。
 
-::
 
-::content-space
 
-::prose-img{src="/desktop/blog/automation.webp" alt="前言圖片"}
-::
+![前言圖片](/desktop/blog/automation.webp)
+
 
 ## 三大祕訣穩定你的前端環境
-
-::content-block
 
 ### 一、鎖定精確版本
 
@@ -39,9 +33,6 @@ isPopular: false
 - 同時 commit `package-lock.json`／`yarn.lock`，保證每次 `install` 都拉到相同依賴。
 - 定期審查鎖檔，移除長期不用的套件，減少攻擊面。
 
-::
-
-::content-block
 
 ### 二、自動化更新檢測
 
@@ -54,9 +45,7 @@ isPopular: false
 - 為更新 PR 加上 CI 測試，自動跑 lint、unit test、E2E，確保升級後不破壞現有功能。
 - 設定自動合併 minor／patch 更新，解放人力。
 
-::
 
-::content-block
 
 ### 三、CI/CD 流程中加入環境重現
 
@@ -69,12 +58,12 @@ isPopular: false
 - 建置 Docker 映像檔，將 Node.js 版本、OS 相依性封裝成映像，團隊成員與部署環境統一。
 - 自動化部屬前，執行 build & test；通過後再推到 staging，最後 deploy 到 production。
 
-::
+
 
 > **小結：**  
 > 掌握「鎖定版本、檢測更新、自動化重現」三大祕訣，你的前端專案就能在快速變動的生態中保持穩定且可維護，減少突發事故，提高開發效率。
 
-::
+
 
 ## 延伸閱讀
 

@@ -11,22 +11,20 @@ tags:
 isPopular: false
 ---
 
-::content-space
+
 
 ## 前言
 
 在多人團隊中，Git 就像專案的「大腦」，掌握好它能讓你和隊友同心協力、避免互相覆蓋彼此的程式碼。今天我整理三大核心概念，帶你快速上手 Git 流程，從最基礎的 commit 到分支管理與協作，再到解決衝突，讓你的專案開發更加順暢。
 
-::
 
-::content-space
 
-::prose-img{src="/desktop/blog/git.webp" alt="前言圖片"}
-::
+![前言圖片](/desktop/blog/git.webp)
+
 
 ## 三大關鍵：打造穩定的 Git 協作流程
 
-::content-block
+
 
 ### 一、初始化與基本操作
 
@@ -39,9 +37,9 @@ isPopular: false
 2. 逐步 add & commit：每完成一項小功能，就用簡潔訊息（如 `feat: 新增登入表單`）做一次 commit。
 3. push 到遠端：`git push origin main` 前先 pull 最新，保持本地與遠端同步。
 
-::
 
-::content-block
+
+
 
 ### 二、分支策略與 PR 流程
 
@@ -54,9 +52,9 @@ isPopular: false
 - Pull Request（PR）流程：完成後發 PR，請求同事 code review，確保品質並讓大家共享知識。
 - Merge 與 Rebase：習慣把分支 rebase 到最新 `main`，然後再合併，保有乾淨的歷史。
 
-::
 
-::content-block
+
+
 
 ### 三、衝突處理與回滾技巧
 
@@ -69,12 +67,12 @@ isPopular: false
 2. 如有必要，利用 `git revert <commit>` 生成「反向提交」來回滾錯誤更改；或用 `git reset --hard <hash>` 回到某個安全點（慎用）。
 3. 定期在 `main` 分支打標籤（`git tag v1.0.0`），快速定位穩定版本。
 
-::
+
 
 > 小結：  
 > 從「初始化與基礎 commit → 分支策略與 PR → 衝突處理及回滾」，掌握三大 Git 核心流程，就能讓前端專案協作更有序、更安全，也更容易維護。
 
-::
+
 
 ## 延伸閱讀
 

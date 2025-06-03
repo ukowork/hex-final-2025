@@ -10,17 +10,19 @@ const routes = [
        {
           path: '',
           name: 'Idx',
-          component: HomeView
+          component: HomeView,
+          meta: { title: '首頁' }
        },
        {
           path: '/blog',
           name: 'BlogPage',
-          component: () => import(/* webpackChunkName: "about" */ '../views/BlogPage.vue')
+          component: () => import(/* webpackChunkName: "about" */ '../views/BlogPage.vue'),
+          meta: { title: '部落格' }
        },
        {
         path: '/blog/:slug',
         name: 'BlogPost',
-        component: () => import('../views/BlogPost.vue')
+        component: () => import('../views/BlogPost.vue'),
       }
     ],
   },

@@ -11,22 +11,20 @@ tags:
 isPopular: false
 ---
 
-::content-space
+
 
 ## 前言
 
 SEO（搜尋引擎最佳化）不只是給搜尋機器看的技術活，也是提升使用者體驗的關鍵環節。前端工程師如果能在開發過程中同步考量 SEO，不僅能增加流量，也能讓使用者更快找到他們想要的內容。接下來從 HTML、CSS、JavaScript 三大面向，帶你掌握最實用的前端 SEO 技巧。
 
-::
 
-::content-space
 
-::prose-img{src="/desktop/blog/seo.webp" alt="前言圖片"}
-::
+![前言圖片](/desktop/blog/seo.webp)
+
 
 ## 打好基礎：HTML、CSS、JavaScript
 
-::content-block
+
 
 ### HTML 與語意化
 
@@ -40,9 +38,9 @@ SEO（搜尋引擎最佳化）不只是給搜尋機器看的技術活，也是�
 - 圖片必須加上 `alt` 屬性，確保搜尋機器與讀屏軟體都能讀到。
 - 為重要區塊加入長尾關鍵字，並在第一個段落中自然出現一次主關鍵。
 
-::
 
-::content-block
+
+
 
 ### CSS 與效能最佳化
 
@@ -55,9 +53,9 @@ SEO（搜尋引擎最佳化）不只是給搜尋機器看的技術活，也是�
 - 使用 PurgeCSS、Tailwind 的 JIT 或其他 tree-shaking 工具，移除未使用的樣式。
 - 利用媒體屬性（`media="print"`、`media="(max-width:…)`）分流 CSS，避免不必要的阻塞。
 
-::
 
-::content-block
+
+
 
 ### JavaScript 與結構化資料
 
@@ -70,12 +68,12 @@ SEO（搜尋引擎最佳化）不只是給搜尋機器看的技術活，也是�
 - 在 `<head>` 中注入 JSON-LD 架構化資料，宣告 `Article`、`BreadcrumbList`、`WebPage` 等。
 - 優化初始 JS 載入，減少首次互動時間（TTI），讓爬蟲能快速抓取 DOM。
 
-::
+
 
 > **小結：**  
 > 透過語意化 HTML、CSS 最佳化，以及 SSR + 架構化資料三大手法，你可以在搜尋引擎與使用者眼中都成為贏家。從前端起手，打造高能見度的網站！
 
-::
+
 
 ## 延伸閱讀
 

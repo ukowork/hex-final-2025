@@ -1,12 +1,23 @@
 <template>
-  <div>
-    <HeaderBar />
+  <HeaderBar />
     <main>
       <router-view />
     </main>
-  </div>
+    <PageFooter v-if="isIdx === false"></PageFooter>
 </template>
 
-<script setup>
+<script>
 import HeaderBar from '@/components/HeaderBar.vue'
+import PageFooter from '@/components/PageFooter.vue'
+export default {
+  components: {
+    HeaderBar,
+    PageFooter
+  },
+  computed: {
+    isIdx() {
+      return this.$route.path === '/'
+    }
+  }
+}
 </script>

@@ -11,22 +11,22 @@ tags:
 isPopular: false
 ---
 
-::content-space
+
 
 ## 前言
 
 Vue 3 的 Composition API 打破了傳統 Options API 的侷限，讓你能在 `setup()` 裡自由組合反應式邏輯與生命週期。對於剛從 Vue 2 或其他框架轉換的新手來說，可能一開始會被 `ref`、`reactive`、`watchEffect` 等概念搞得頭昏腦脹。本文將用「三大關鍵」示範，幫助你快速上手 Composition API，寫出更模組化、易維護的程式碼。
 
-::
 
-::prose-img{src="/desktop/blog/vue3-composition-api.webp" alt="前言圖片"}
-::
 
-::content-space
+![前言圖片](/desktop/blog/vue3-composition-api.webp)
+
+
+
 
 ## 三大關鍵快速掌握 Composition API
 
-::content-block
+
 
 ### 關鍵一：理解 `setup()` 與反應式 API
 
@@ -51,9 +51,9 @@ Vue 3 的 Composition API 打破了傳統 Options API 的侷限，讓你能在 `
 2. 用 `reactive` 包成物件狀態
 3. 熟悉 `computed` 衍生狀態
 
-::
 
-::content-block
+
+
 
 ### 關鍵二：善用 `watchEffect` 與 `watch`
 
@@ -81,9 +81,9 @@ watch(
 );
 ```
 
-::
 
-::
+
+
 
 ## 結語
 

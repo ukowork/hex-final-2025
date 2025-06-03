@@ -11,22 +11,22 @@ tags:
 isPopular: false
 ---
 
-::content-space
+
 
 ## 前言
 
 CSS 不只是顏色、字體和排版，更是塑造使用者體驗的關鍵工具。掌握正確的排版與設計技巧，能讓你的網頁更加流暢、美觀，也更具可維護性。以下分享三大實戰技巧，幫助你在專案中快速落地。
 
-::
 
-::content-space
 
-::prose-img{src="/desktop/blog/css-magic.webp" alt="前言圖片"}
-::
+
+
+![前言圖片](/desktop/blog/css-magic.webp)
+
 
 ## 三大關鍵技巧
 
-::content-block
+
 
 ### 技巧一：統一基底 — CSS Reset 與自訂預設樣式
 
@@ -38,9 +38,9 @@ CSS 不只是顏色、字體和排版，更是塑造使用者體驗的關鍵工�
 - 在專案起手就導入 Normalize.css 或自訂 Reset 規則，重置常見元素的預設樣式。
 - 使用全域變數（CSS 變數）設定色彩、間距、字體等基底值，確保設計一致性。
 
-::
 
-::content-block
+
+
 
 ### 技巧二：彈性排版 — 深入 Flexbox 與 Grid
 
@@ -52,9 +52,9 @@ Flexbox 擅長一維佈局（橫/縱向排列），Grid 則可實現複雜的二
 - 練習常見佈局案例：水平/垂直置中、等寬欄位、動態換行卡片等。
 - 使用 Grid 的 `grid-template-areas` 和 `minmax()`，快速搭出彈性網格。
 
-::
 
-::content-block
+
+
 
 ### 技巧三：響應式優化 — CSS 變數與媒體查詢
 
@@ -66,12 +66,12 @@ Flexbox 擅長一維佈局（橫/縱向排列），Grid 則可實現複雜的二
 - 將常用斷點定義為 CSS 變數（如 `--bp-md: 768px`），在 media query 中重複使用。
 - 利用 `clamp()`、`min()`、`max()` 實現 fluid typography 和 fluid spacing，減少過多的斷點判斷。
 
-::
+
 
 > **小結**：  
 > 先從 Reset 和統一基底著手，再靈活運用 Flexbox/Grid 佈局，最後以變數與流體單位優化響應式，三步驟就能讓你的 CSS 排版與設計更上一層樓。
 
-::
+
 
 ## 延伸閱讀
 

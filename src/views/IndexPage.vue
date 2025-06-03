@@ -296,6 +296,7 @@ import idxContainer from '@/components/idxContainer.vue'
 }
 
 .icon-link {
+  cursor: pointer;
   transition: transform 0.3s ease;
 }
 
