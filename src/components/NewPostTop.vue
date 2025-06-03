@@ -13,7 +13,7 @@
           </li>
           <li class="ml-2 rounded-full bg-brand px-3 py-1.5 text-fs-1-bold text-white">最新文章</li>
         </ul>
-        <a :href="`${baseUrl}${latestPost.slug}`" class="block">
+        <a :href="`${baseUrl}#${latestPost.slug}`" class="block">
           <h2 class="mb-2 text-fs-1.75-bold lg:whitespace-nowrap ">{{ latestPost.title }}</h2>
           <p class="line-clamp-2 mb-4 text-fs-1 lg:max-w-[636px]">{{ latestPost.description }}</p>
           <button type="button"

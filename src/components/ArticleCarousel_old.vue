@@ -1,13 +1,18 @@
 <script setup>
 import { ref, computed, onMounted, onUnmounted, nextTick } from 'vue'
-import matter from 'gray-matter'
+
+const props = defineProps({
+  articles: {
+    type: Array,
+    required: true
+  }
+})
 
 const currentIndex = ref(0)
 const visibleCount = ref(3)
 const container = ref(null)
 const slideWidth = ref(0)
 const baseUrl = process.env.BASE_URL || ''
-const articles = ref([])
 
 function updateVisibleCount() {
   const width = window.innerWidth
@@ -16,58 +21,26 @@ function updateVisibleCount() {
   else visibleCount.value = 1
 
   nextTick(() => {
-    if (container.value && container.value.clientWidth > 0) {
+    if (container.value) {
       slideWidth.value = container.value.clientWidth / visibleCount.value
     }
   })
 }
 
-const context = require.context('@/content/blog', false, /\.md$/)
-function loadArticles() {
-  articles.value = context.keys()
-    .map(key => {
-      const raw = context(key).default || context(key)
-      const { data } = matter(raw)
-      const formatDate = (dateStr) => {
-        const date = new Date(dateStr)
-        const yyyy = date.getFullYear()
-        const mm = (date.getMonth() + 1).toString().padStart(2, '0')
-        const dd = date.getDate().toString().padStart(2, '0')
-        return `${yyyy}/${mm}/${dd}`
-      }
-      return {
-        id: data.slug || key,
-        link: `${baseUrl}#${data.slug}`,
-        title: data.title,
-        text: data.description,
-        date: formatDate(data.date),
-        img: `${baseUrl}${data.desktopCover}`,
-        simg: `${baseUrl}${data.deviceCover}`,
-        tags: data.tags || [],
-        isNew: data.isNew || false,
-        isPop: data.isPopular || false,
-        _rawDate: new Date(data.date)
-      }
-    })
-    .sort((a, b) => b._rawDate - a._rawDate)
-}
-
 onMounted(() => {
   updateVisibleCount()
-  loadArticles()
   window.addEventListener('resize', updateVisibleCount)
 })
-
 onUnmounted(() => {
   window.removeEventListener('resize', updateVisibleCount)
 })
 
-const maxIndex = computed(() =>
-  Math.max(articles.value.length - visibleCount.value, 0)
+const totalSlides = computed(() =>
+  Math.ceil(props.articles.length / visibleCount.value)
 )
 
 const trackStyle = computed(() => ({
-  width: `${articles.value.length * slideWidth.value}px`,
+  width: `${props.articles.length * slideWidth.value}px`,
   transform: `translateX(-${currentIndex.value * slideWidth.value}px)`
 }))
 
@@ -75,7 +48,7 @@ function prev() {
   if (currentIndex.value > 0) currentIndex.value--
 }
 function next() {
-  if (currentIndex.value < maxIndex.value) currentIndex.value++
+  if (currentIndex.value < totalSlides.value - 1) currentIndex.value++
 }
 </script>
 
@@ -92,25 +65,25 @@ function next() {
     <!-- 右按鈕 -->
     <button
       class="hidden 2xl:flex absolute right-[-3rem] top-1/2 -translate-y-1/2 z-10 w-11 h-11 items-center justify-center"
-      @click="next" :disabled="currentIndex >= articles.length - visibleCount"
-      :class="{ 'pointer-events-none opacity-25': currentIndex >= articles.length - visibleCount }">
+      @click="next" :disabled="currentIndex === totalSlides - 1"
+      :class="{ 'pointer-events-none opacity-25': currentIndex === totalSlides - 1 }">
       <img src="@/assets/img/icon/right-arrow.webp" alt="right-arrow">
     </button>
     <!-- =========== 部落格精選卡片 =========== -->
     <div class="overflow-hidden">
       <ul class="flex transition-transform duration-500 list-none p-0 m-0" :style="trackStyle">
-        <li v-for="item in articles" :key="item.id" class="flex-shrink-0 px-3"
+        <li v-for="item in props.articles" :key="item.id" class="flex-shrink-0 px-3"
           :style="{ width: slideWidth + 'px' }">
           <a :href="item.link">
             <figure class="mb-4 overflow-hidden">
               <picture>
-                <source media="(max-width:1024px)" :srcset="item.simg">
-                <img :src="item.img" class="block aspect-[3/2] w-full object-cover lg:aspect-[16/9]" :alt="item.title" />
+                <source media="(max-width:1024px)" :srcset="`${baseUrl}${item.simg}`">
+                <img :src="`${baseUrl}${item.img}`" class="block aspect-[3/2] w-full object-cover lg:aspect-[16/9]" :alt="item.title" />
               </picture>
             </figure>
             <time class="mb-1 text-fs-1">{{ item.date }}</time>
             <ul class="flex flex-wrap gap-x-2 gap-y-1">
-              <li v-for="tag in item.tags" :key="tag" class="text-fs-1.5 text-brand">#{{ tag }}</li>
+              <li v-for="tag in item.tags" :key="tag" class="text-fs-1.5 text-brand">{{ tag }}</li>
               <li v-if="item.isNew" class="rounded-full bg-brand px-3 py-1.5 text-fs-1-bold text-white">最新文章</li>
               <li v-if="item.isPop" class="rounded-full bg-brand px-3 py-1.5 text-fs-1-bold text-white">人氣文章</li>
             </ul>
@@ -129,9 +102,9 @@ function next() {
         :class="{ 'pointer-events-none opacity-25': currentIndex === 0 }">
         <img src="@/assets/img/icon/left-arrow.webp" alt="left-arrow">
       </button>
-      <button @click="next" :disabled="currentIndex >= articles.length - visibleCount"
+      <button @click="next" :disabled="currentIndex === totalSlides - 1"
         class="w-11 h-11 flex items-center justify-center"
-        :class="{ 'pointer-events-none opacity-25': currentIndex >= articles.length - visibleCount }">
+        :class="{ 'pointer-events-none opacity-25': currentIndex === totalSlides - 1 }">
         <img src="@/assets/img/icon/right-arrow.webp" alt="right-arrow">
       </button>
     </div>

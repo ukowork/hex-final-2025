@@ -90,7 +90,7 @@
   <!-- 部落格精選 -->
   <idxContainer>
     <h2 class="sectionTitle mb-6">部落格精選</h2>
-    <ArticleCarousel :articles="articles" />
+    <ArticleCarousel></ArticleCarousel>
   </idxContainer>
   <!-- ========================================================================================== -->
   <!-- 職涯諮詢成功案例 -->
@@ -273,7 +273,6 @@
   <!-- ========================================================================================== -->
 </template>
 <script>
-import matter from 'gray-matter'
 import idxContainer from '@/components/idxContainer.vue'
 import ArticleCarousel from '@/components/ArticleCarousel.vue'
 
@@ -284,37 +283,9 @@ export default {
   },
   data() {
     return {
-      articles: []
+      // articles: []
     }
   },
-  created() {
-    const context = require.context('@/content/blog', false, /\.md$/)
-    this.articles = context.keys().map(key => {
-      const raw = context(key) // raw 是 markdown 字串
-      const { data } = matter(raw)
-
-      const formatDate = (dateStr) => {
-        const date = new Date(dateStr)
-        const yyyy = date.getFullYear()
-        const mm = (date.getMonth() + 1).toString().padStart(2, '0')
-        const dd = date.getDate().toString().padStart(2, '0')
-        return `${yyyy}/${mm}/${dd}`
-      }
-
-      return {
-        id: data.slug || key.replace('./', '').replace('.md', ''),
-        link: data.slug || `/blog/${key.replace('./', '').replace('.md', '')}`,
-        title: data.title,
-        text: data.description,
-        tags: data.tags,
-        date: formatDate(data.date),
-        img: data.desktopCover,
-        simg: data.mobileCover,
-        isNew: data.isNew || false,
-        isPop: data.isPopular || false
-      }
-    })
-  }
 }
 
 </script>
