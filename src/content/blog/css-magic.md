@@ -3,7 +3,7 @@ title: CSS 魔法大揭密：排版與設計的三大關鍵技巧
 description: 在瀏覽器畫面上實現各種精美介面，一直是前端開發充滿成就感的部分。但當面臨複雜的佈局需求或是響應式設計時，往往讓人抓破頭皮。這篇文章想跟大家分享我在實務專案中累積的三大技巧，幫助你更有效率地駕馭 CSS，打造兼具美感與功能性的網頁。
 date: 2024-09-03
 desktopCover: /desktop/blog/css-magic.webp
-mobileCover: /device/blog/css-magic.webp
+deviceCover: /device/blog/css-magic.webp
 slug: /blog/css-magic
 tags:
   - CSS設計

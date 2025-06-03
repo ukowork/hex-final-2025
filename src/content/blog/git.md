@@ -3,7 +3,7 @@ title: Git 與版本控制：前端協作的必修課
 description: 當你從一人開發晉升到多人合作，版本控制的好壞往往決定了專案的順暢度。Git 不僅能記錄程式碼變動，更能確保每位成員都在正確的分支上完成任務。透過這篇文章，你將了解常見的 Git 流程，並學會在前端專案中輕鬆管理與協作。
 date: 2024-05-04
 desktopCover: /desktop/blog/git.webp
-mobileCover: /device/blog/git.webp
+deviceCover: /device/blog/git.webp
 slug: /blog/git
 tags:
   - Git

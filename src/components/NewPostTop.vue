@@ -1,8 +1,8 @@
 <template>
   <section class="mx-auto flex max-w-[1920px] flex-col border border-line lg:flex-row">
     <picture>
-      <source media="(min-width: 1024px)" :srcset="`${baseUrl}/desktop/blog/start-from-scratch.webp`" />
-      <img :src="`${baseUrl}/desktop/blog/start-from-scratch.webp`" alt="banner image" class="block w-full">
+      <source media="(min-width: 1024px)" :srcset="`${baseUrl}${latestPost.desktopCover}`" />
+      <img :src="`${baseUrl}${latestPost.deviceCover}`" alt="banner image" class="block w-full">
     </picture>
   <div class="flex-1 content-center px-3 py-12 lg:px-6 lg:py-0"><time class="mb-1 block text-fs-1">{{
         latestPost.dateFormatted }}</time>
@@ -11,11 +11,9 @@
             <span>{{ tag }}</span>
             <span v-if="idx !== (latestPost.tags.length - 1)" class="mx-1">x</span>
           </li>
-          <!-- <li class="text-fs-1.5 text-brand"><span>前端開發</span><span class="mx-1">x</span></li>
-          <li class="text-fs-1.5 text-brand"><span>職涯成長</span></li> -->
           <li class="ml-2 rounded-full bg-brand px-3 py-1.5 text-fs-1-bold text-white">最新文章</li>
         </ul>
-        <a href="/blog/start-from-scratch" class="block">
+        <a :href="`${baseUrl}${latestPost.slug}`" class="block">
           <h2 class="mb-2 text-fs-1.75-bold lg:whitespace-nowrap ">{{ latestPost.title }}</h2>
           <p class="line-clamp-2 mb-4 text-fs-1 lg:max-w-[636px]">{{ latestPost.description }}</p>
           <button type="button"

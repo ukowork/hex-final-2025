@@ -3,7 +3,7 @@ title: 掌握前端測試：從單元測試到端對端測試的完整攻略
 description: 寫程式容易，但要確保程式在多種情境、裝置都能正常運行就沒那麼簡單了。這時「測試」便成了維持程式品質的關鍵環節。從最基礎的單元測試，到模擬使用者行為的端對端測試，每一種測試方式都有它的價值與最佳應用情境。本文將帶你認識不同類型的前端測試工具，以及如何在開發流程中實踐自動化測試，打造更穩定、可預期的專案。
 date: 2024-02-07
 desktopCover: /desktop/blog/unit-test.webp
-mobileCover: /device/blog/unit-test.webp
+deviceCover: /device/blog/unit-test.webp
 slug: /blog/unit-test
 tags:
   - 測試框架

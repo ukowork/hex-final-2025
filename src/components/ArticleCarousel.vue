@@ -12,6 +12,7 @@ const currentIndex = ref(0)
 const visibleCount = ref(3)
 const container = ref(null)
 const slideWidth = ref(0)
+const baseUrl = process.env.BASE_URL || ''
 
 function updateVisibleCount() {
   const width = window.innerWidth
@@ -76,8 +77,8 @@ function next() {
           <a :href="item.link">
             <figure class="mb-4 overflow-hidden">
               <picture>
-                <source media="(max-width:1024px)" :srcset="item.simg">
-                <img :src="item.img" class="block aspect-[3/2] w-full object-cover lg:aspect-[16/9]" :alt="item.title" />
+                <source media="(max-width:1024px)" :srcset="`${baseUrl}${item.simg}`">
+                <img :src="`${baseUrl}${item.img}`" class="block aspect-[3/2] w-full object-cover lg:aspect-[16/9]" :alt="item.title" />
               </picture>
             </figure>
             <time class="mb-1 text-fs-1">{{ item.date }}</time>
