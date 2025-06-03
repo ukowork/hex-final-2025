@@ -4,7 +4,7 @@ description: 當你從一人開發晉升到多人合作，版本控制的好壞�
 date: 2024-05-04
 desktopCover: /desktop/blog/git.webp
 deviceCover: /device/blog/git.webp
-slug: /blog/git
+slug: blog/git
 tags:
   - Git
   - 協作流程

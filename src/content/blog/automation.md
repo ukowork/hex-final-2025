@@ -4,7 +4,7 @@ description: 前端世界日新月異，第三方套件與工具種類繁多，�
 date: 2024-02-17
 desktopCover: /desktop/blog/automation.webp
 deviceCover: /device/blog/automation.webp
-slug: /blog/automation
+slug: blog/automation
 tags:
   - 專案維護
   - 自動化測試

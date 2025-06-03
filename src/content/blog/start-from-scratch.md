@@ -4,7 +4,7 @@ description: 嗨，我是 Alyse，一名前端工程師兼職涯諮詢師。一�
 date: 2024-10-21
 desktopCover: /desktop/blog/start-from-scratch.webp
 deviceCover: /device/blog/start-from-scratch.webp
-slug: /blog/start-from-scratch
+slug: blog/start-from-scratch
 tags:
   - 前端開發
   - 職涯成長

@@ -4,7 +4,7 @@ description: 即使你的網站擁有優美的介面與強大的功能，如果�
 date: 2024-05-01
 desktopCover: /desktop/blog/seo.webp
 deviceCover: /device/blog/seo.webp
-slug: /blog/seo
+slug: blog/seo
 tags:
   - SEO
   - 網頁曝光

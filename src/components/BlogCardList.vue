@@ -1,5 +1,6 @@
 <script>
 import matter from 'gray-matter'
+import { withBase } from '@/utils/url'
 
 // 使用 require.context 讀取所有 markdown 檔
 const context = require.context('@/content/blog', false, /\.md$/)
@@ -18,7 +19,9 @@ const allPosts = context.keys().map(key => {
     ...data,
     dateFormatted: formatDate(data.date), // 加上格式化後的日期
     slug: data.slug || key.replace('./', '').replace('.md', ''),
-    dateObj: new Date(data.date)
+    dateObj: new Date(data.date),
+    desktopCover: withBase(data.desktopCover),
+    deviceCover: withBase(data.deviceCover)
   }
 }).sort((a, b) => b.dateObj - a.dateObj) // 時間由新到舊
 
@@ -26,8 +29,7 @@ export default {
   name: 'BlogCardList',
   data() {
     return {
-      posts: allPosts.slice(1),
-      baseUrl: process.env.BASE_URL || ''
+      posts: allPosts.slice(1)
     }
   }
 }
@@ -37,7 +39,10 @@ export default {
   <section class="mb-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-y-20">
     <article v-for="post in posts" :key="post.slug" class="overflow-hidden bg-white">
       <router-link :to="post.slug" class="block">
-        <img :src="`${baseUrl}${post.desktopCover}`" class="w-full h-48 object-cover mb-4" />
+        <picture>
+          <source media="(min-width:1024px)" :srcset="post.desktopCover"/>
+          <img :src="post.deviceCover" class="w-full h-48 object-cover mb-4" />
+        </picture>
         <div class="p-0">
           <p class="mb-1 text-fs-1">{{ post.dateFormatted }}</p>
           <p class="text-fs-1.5 text-brand mb-2">

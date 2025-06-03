@@ -4,7 +4,7 @@ description: 對正在求職的前端工程師而言，作品集往往是第一�
 date: 2024-09-07
 desktopCover: /desktop/blog/good-resume.webp
 deviceCover: /device/blog/good-resume.webp
-slug: /blog/good-resume
+slug: blog/good-resume
 tags:
   - 作品集
   - 求職攻略

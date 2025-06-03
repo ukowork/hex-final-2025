@@ -4,7 +4,7 @@ description: 在瀏覽器畫面上實現各種精美介面，一直是前端開�
 date: 2024-09-03
 desktopCover: /desktop/blog/css-magic.webp
 deviceCover: /device/blog/css-magic.webp
-slug: /blog/css-magic
+slug: blog/css-magic
 tags:
   - CSS設計
   - 視覺體驗

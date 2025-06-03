@@ -4,7 +4,7 @@ description: 許多前端開發者在成長過程中都曾面臨動態語言帶�
 date: 2024-02-17
 desktopCover: /desktop/blog/typescript.webp
 deviceCover: /device/blog/typescript.webp
-slug: /blog/typescript
+slug: blog/typescript
 tags:
   - TypeScript
   - 程式設計

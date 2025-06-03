@@ -195,7 +195,7 @@
           <input type="email" name="EMAIL" placeholder="請輸入您的電子信箱" required=""
             class="mb-6 w-full bg-wrap-gray px-4 py-2 placeholder:text-content focus:outline-0">
           <input type="submit" value="啟動訂閱" name="subscribe"
-            class="cursor-pointer rounded-full border border-brand bg-white px-4 py-2 text-fs-1-bold text-brand">
+            class="cursor-pointer rounded-full border border-brand bg-white px-4 py-2 text-fs-1-bold text-brand hover:text-white hover:bg-brand">
         </form>
       </div>
     </div>

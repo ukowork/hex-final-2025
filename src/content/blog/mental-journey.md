@@ -4,7 +4,7 @@ description: 能夠憑藉自學進入前端領域，聽起來令人振奮，但�
 date: 2024-07-09
 desktopCover: /desktop/blog/mental-journey.webp
 deviceCover: /device/blog/mental-journey.webp
-slug: /blog/mental-journey
+slug: blog/mental-journey
 tags:
   - 轉職工程師
   - 學習心法

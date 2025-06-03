@@ -4,7 +4,7 @@ description: 寫程式容易，但要確保程式在多種情境、裝置都能�
 date: 2024-02-07
 desktopCover: /desktop/blog/unit-test.webp
 deviceCover: /device/blog/unit-test.webp
-slug: /blog/unit-test
+slug: blog/unit-test
 tags:
   - 測試框架
   - 品質保證

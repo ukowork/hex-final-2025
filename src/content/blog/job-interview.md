@@ -4,7 +4,7 @@ description: 面試前端工程師時，你或許擔心被問到各種刁鑽的�
 date: 2024-07-08
 desktopCover: /desktop/blog/job-interview.webp
 deviceCover: /device/blog/job-interview.webp
-slug: /blog/job-interview
+slug: blog/job-interview
 tags:
   - 面試準備
   - 工程師求職

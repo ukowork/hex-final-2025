@@ -1,12 +1,12 @@
 <script setup>
 import { ref, computed, onMounted, onUnmounted, nextTick } from 'vue'
 import matter from 'gray-matter'
+import { withBase } from '@/utils/url'
 
 const currentIndex = ref(0)
 const visibleCount = ref(3)
 const container = ref(null)
 const slideWidth = ref(0)
-const baseUrl = process.env.BASE_URL || ''
 const articles = ref([])
 
 function updateVisibleCount() {
@@ -37,12 +37,12 @@ function loadArticles() {
       }
       return {
         id: data.slug || key,
-        link: `${baseUrl}#${data.slug}`,
+        link: `#${data.slug}`, // hash 模式連結
         title: data.title,
         text: data.description,
         date: formatDate(data.date),
-        img: `${baseUrl}${data.desktopCover}`,
-        simg: `${baseUrl}${data.deviceCover}`,
+        img: withBase(data.desktopCover),
+        simg: withBase(data.deviceCover),
         tags: data.tags || [],
         isNew: data.isNew || false,
         isPop: data.isPopular || false,

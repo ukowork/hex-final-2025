@@ -1,7 +1,8 @@
 <!-- eslint-disable no-unused-vars -->
 <script>
 import matter from 'gray-matter'
-import NewPostTop from '@/components/NewPostTop.vue'
+import { buildRouteLink } from '@/utils/url'
+import OnePostTop from '@/components/OnePostTop.vue'
 import MarkdownRenderer from '@/components/MarkdownRenderer.vue'
 
 const context = require.context('@/content/blog', false, /\.md$/)
@@ -38,6 +39,7 @@ export default {
   },
 
   methods: {
+    buildRouteLink,
     formatDate(dateStr) {
       const d = new Date(dateStr)
       const yyyy = d.getFullYear()
@@ -45,7 +47,6 @@ export default {
       const dd = d.getDate().toString().padStart(2, '0')
       return `${yyyy}/${mm}/${dd}`
     },
-
     loadPost(slug) {
       const matchPath = `./${slug}.md`
       const raw = context.keys().includes(matchPath) ? context(matchPath) : null
@@ -75,14 +76,14 @@ export default {
   },
 
   components: {
-    NewPostTop,
+    OnePostTop,
     MarkdownRenderer,
   },
   
 }
 </script>
 <template>
-  <NewPostTop></NewPostTop>
+  <OnePostTop :onePost="frontmatter"></OnePostTop>
   <!--  ========================================================================= -->
   <div v-if="notFound" class="text-red-500 text-center">找不到這篇文章捏...</div>
   <!--  ========================================================================= -->
@@ -96,13 +97,13 @@ export default {
       <!--  ============================================================== -->
       <!--  上一篇 / 下一篇 -->
       <div class="flex justify-between items-center mt-10">
-        <router-link v-if="prevPost" :to="prevPost.slug"
+        <router-link v-if="prevPost" :to="`/${prevPost.slug}`"
           class="flex items-center gap-1 rounded-full border border-black px-4 py-2 hover:border-brand hover:text-brand">
           <img src="../assets/img/icon/prev.webp" alt="上一篇" class="cursor-pointer" />
           <span>上一篇</span>
         </router-link>
         <span class="flex-1"></span>
-        <router-link v-if="nextPost" :to="nextPost.slug"
+        <router-link v-if="nextPost" :to="`/${nextPost.slug}`"
           class="flex items-center gap-1 rounded-full border border-black px-4 py-2 hover:border-brand hover:text-brand">
           <span>下一篇</span>
           <img src="../assets/img/icon/next.webp" alt="下一篇" class="cursor-pointer" />

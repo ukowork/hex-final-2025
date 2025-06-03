@@ -4,7 +4,7 @@ description: 許多前端開發者對 Vue 一直情有獨鍾，因為它易上�
 date: 2024-06-29
 desktopCover: /desktop/blog/vue3-composition-api.webp
 deviceCover: /device/blog/vue3-composition-api.webp
-slug: /blog/vue3-composition-api
+slug: blog/vue3-composition-api
 tags:
   - Vue3
   - 框架學習
