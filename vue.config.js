@@ -2,7 +2,7 @@ const { defineConfig } = require('@vue/cli-service')
 
 module.exports = defineConfig({
   transpileDependencies: true,
-  publicPath: '/hex-final-2025/',
+  publicPath: process.env.NODE_ENV === 'production' ? '/hex-final-2025/' : '/',
   chainWebpack: config => {
     config.module
       .rule('md')
