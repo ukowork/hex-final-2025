@@ -1,7 +1,7 @@
 <!-- eslint-disable no-unused-vars -->
 <script>
 import matter from 'gray-matter'
-import { buildRouteLink } from '@/utils/url'
+import { withBase, buildRouteLink } from '@/utils/url'
 import OnePostTop from '@/components/OnePostTop.vue'
 import MarkdownRenderer from '@/components/MarkdownRenderer.vue'
 
@@ -13,7 +13,7 @@ const allPosts = context.keys().map(key => {
   return {
     ...data,
     slug: data.slug || key.replace('./', '').replace('.md', ''),
-    dateObj: new Date(data.date)
+    dateObj: new Date(data.date),
   }
 }).sort((a, b) => b.dateObj - a.dateObj)
 
@@ -65,7 +65,9 @@ export default {
 
       this.frontmatter = {
         ...data,
-        dateFormatted: this.formatDate(data.date)
+        dateFormatted: this.formatDate(data.date),
+        desktopCover: withBase(data.desktopCover),
+        deviceCover: withBase(data.deviceCover)
       }
       this.body = content
       this.notFound = false
