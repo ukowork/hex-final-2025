@@ -28,6 +28,6 @@ export default {
     HeadBanner,
     NewPostTop,
     BlogCardList
-  }
+  },
 }
 </script>

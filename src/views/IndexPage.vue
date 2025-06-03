@@ -272,10 +272,53 @@
   </footer>
   <!-- ========================================================================================== -->
 </template>
-<script setup>
-import { articles } from '@/data/articleData.js'
-import ArticleCarousel from '@/components/ArticleCarousel.vue'
+<script>
 import idxContainer from '@/components/idxContainer.vue'
+import matter from 'gray-matter'
+import ArticleCarousel from '@/components/ArticleCarousel.vue'
+
+const context = require.context('@/content/blog', false, /\.md$/)
+
+const allPosts = context.keys().map(key => {
+  const raw = context(key)
+  const { data } = matter(raw.default || raw)
+
+  const formatDate = (dateStr) => {
+    const date = new Date(dateStr)
+    const yyyy = date.getFullYear()
+    const mm = (date.getMonth() + 1).toString().padStart(2, '0')
+    const dd = date.getDate().toString().padStart(2, '0')
+    return `${yyyy}/${mm}/${dd}`
+  }
+  //
+  const baseUrl = process.env.BASE_URL || '';
+
+  return {
+    id: data.slug || key.replace('./', '').replace('.md', ''),
+    link: `${baseUrl}${data.slug}` || `${baseUrl}/blog/${key.replace('./', '').replace('.md', '')}`,
+    title: data.title || '無標題',
+    text: data.description || '',
+    tags: data.tags || [],
+    date: formatDate(data.date),
+    img: data.desktopCover || '/desktop/blog/default.webp',
+    simg: data.deviceCover || '/device/blog/default.webp',
+    isNew: data.isNew || false,
+    isPop: data.isPopular || false
+  }
+}).sort((a, b) => new Date(b.date) - new Date(a.date))
+
+export default {
+  components: { 
+    idxContainer,
+    ArticleCarousel 
+  },
+  data() {
+    return {
+      articles: allPosts
+    }
+  }
+}
+
 </script>
 
 <style scoped>
