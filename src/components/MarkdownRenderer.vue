@@ -1,3 +1,4 @@
+<!-- eslint-disable no-empty -->
 <script setup>
 import { computed } from 'vue'
 import markdownIt from 'markdown-it'
