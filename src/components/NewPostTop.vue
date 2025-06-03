@@ -1,8 +1,8 @@
 <template>
   <section class="mx-auto flex max-w-[1920px] flex-col border border-line lg:flex-row">
     <picture>
-      <source media="(min-width: 1024px)" :srcset="`${process.env.BASE_URL}/desktop/blog/start-from-scratch.webp`" />
-      <img :src="`${process.env.BASE_URL}/desktop/blog/start-from-scratch.webp`" alt="banner image" class="block w-full">
+      <source media="(min-width: 1024px)" :srcset="`${baseUrl}/desktop/blog/start-from-scratch.webp`" />
+      <img :src="`${baseUrl}/desktop/blog/start-from-scratch.webp`" alt="banner image" class="block w-full">
     </picture>
   <div class="flex-1 content-center px-3 py-12 lg:px-6 lg:py-0"><time class="mb-1 block text-fs-1">{{
         latestPost.dateFormatted }}</time>
@@ -51,8 +51,14 @@ export default {
   name: 'BlogBannerCard',
   data() {
     return {
-      latestPost: allPosts[0]
+      latestPost: allPosts[0],
+      baseUrl: process.env.BASE_URL || '/'
     }
+  },
+  mounted() {
+    console.log(process.env)
+    console.log('BASE_URL is:', this.baseUrl)
   }
 }
+
 </script>
