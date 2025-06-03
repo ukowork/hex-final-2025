@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { createRouter, createWebHashHistory } from 'vue-router'
 import MainLayout from '../views/layouts/MainLayout.vue'
 import HomeView from '../views/IndexPage.vue'
@@ -30,7 +31,10 @@ const routes = [
 
 const router = createRouter({
   history: createWebHashHistory(process.env.BASE_URL),
-  routes
+  routes,
+  scrollBehavior(to, from, savedPosition) {
+    return { top: 0 }
+  }
 })
 
 export default router

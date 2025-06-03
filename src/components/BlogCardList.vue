@@ -46,7 +46,7 @@ export default {
         <div class="p-0">
           <p class="mb-1 text-fs-1">{{ post.dateFormatted }}</p>
           <p class="text-fs-1.5 text-brand mb-2">
-            <span v-for="tag in post.tags" :key="tag">#{{ tag }} </span>
+            <span v-for="tag in post.tags" :key="tag" class="inline-block me-2">#{{ tag }} </span>
           </p>
           <h2 class="mb-2 leading-snug text-fs-1.75-bold">{{ post.title }}</h2>
           <p class="line-clamp-2 mb-4 text-fs-1 text-content">{{ post.description }}</p>
