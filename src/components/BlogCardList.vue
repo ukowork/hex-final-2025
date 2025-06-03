@@ -27,6 +27,7 @@ export default {
   data() {
     return {
       posts: allPosts.slice(1),
+      baseUrl: process.env.BASE_URL || ''
     }
   }
 }
@@ -36,9 +37,9 @@ export default {
   <section class="mb-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-y-20">
     <article v-for="post in posts" :key="post.slug" class="overflow-hidden bg-white">
       <router-link :to="post.slug" class="block">
-        <img :src="post.desktopCover" class="w-full h-48 object-cover mb-4" />
+        <img :src="`${baseUrl}${post.desktopCover}`" class="w-full h-48 object-cover mb-4" />
         <div class="p-0">
-          <p class="mb-1 text-fs-1">{{ post.dateFormatted  }}</p>
+          <p class="mb-1 text-fs-1">{{ post.dateFormatted }}</p>
           <p class="text-fs-1.5 text-brand mb-2">
             <span v-for="tag in post.tags" :key="tag">#{{ tag }} </span>
           </p>

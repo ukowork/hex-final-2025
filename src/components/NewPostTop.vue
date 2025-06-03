@@ -52,13 +52,13 @@ export default {
   data() {
     return {
       latestPost: allPosts[0],
-      baseUrl: process.env.BASE_URL || '/'
+      baseUrl: process.env.BASE_URL || ''
     }
   },
-  mounted() {
-    console.log(process.env)
-    console.log('BASE_URL is:', this.baseUrl)
-  }
+  // mounted() {
+  //   console.log(process.env)
+  //   console.log('BASE_URL is:', this.baseUrl)
+  // }
 }
 
 </script>

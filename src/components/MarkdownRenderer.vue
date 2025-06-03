@@ -1,4 +1,3 @@
-<!-- eslint-disable no-empty -->
 <script setup>
 import { computed } from 'vue'
 import markdownIt from 'markdown-it'
@@ -9,6 +8,10 @@ const props = defineProps({
   source: String // 文章的 markdown 內文
 })
 
+// 加上 Base URL
+const baseUrl = process.env.BASE_URL || '/'
+
+// 初始化 markdown-it
 const md = markdownIt({ 
   html: true, 
   linkify: true, 
@@ -19,43 +22,45 @@ const md = markdownIt({
         return `<pre class="hljs"><code>${hljs.highlight(code, { language: lang }).value}</code></pre>`
       } catch (__) {}
     }
-    // fallback：不指定語言
     return `<pre class="hljs"><code>${md.utils.escapeHtml(code)}</code></pre>`
   }
 })
-// 連結處理 =================================
+
+// 🔗 自訂連結：target + rel
 md.renderer.rules.link_open = (tokens, idx, options, env, self) => {
   const token = tokens[idx]
 
-  // 加 target="_blank"（若尚未存在）
   if (!token.attrs?.some(([name]) => name === 'target')) {
     token.attrPush(['target', '_blank'])
   }
 
-  // 加 rel="noopener"
   if (!token.attrs?.some(([name]) => name === 'rel')) {
     token.attrPush(['rel', 'noopener'])
   }
 
   return self.renderToken(tokens, idx, options)
 }
-// 圖片處理 =================================
+
+// 自訂圖片渲染：picture + baseUrl
 md.renderer.rules.image = (tokens, idx) => {
   const token = tokens[idx]
   const src = token.attrGet('src') || ''
   const alt = token.content || ''
-  const mobileSrc = src.replace('/desktop/', '/device/')
+
+  // 加上 baseUrl 前綴
+  const fullSrc = src.startsWith('/') ? `${baseUrl}${src.slice(1)}` : src
+  const mobileSrc = fullSrc.replace('/desktop/', '/device/')
 
   return `
     <picture>
       <source media="(max-width: 768px)" srcset="${mobileSrc}" />
-      <img src="${src}" alt="${alt}" />
+      <img src="${fullSrc}" alt="${alt}" />
     </picture>
   `
 }
 
+// 渲染 HTML
 const rendered = computed(() => md.render(props.source || ''))
-
 </script>
 
 <template>
